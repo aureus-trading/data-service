@@ -26,11 +26,11 @@ steps:
   inputs:
     command: 'install'
 
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'run test:u'
-  displayName: 'Testing npm'  
+#- task: Npm@1
+#  inputs:
+#    command: 'custom'
+#    customCommand: 'run test:u'
+#  displayName: 'Testing npm'  
 
 
 - task: PublishTestResults@2
