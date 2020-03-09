@@ -90,7 +90,7 @@ const selectExchanges = pg({ t: 'txs_7' }).column(
   { candle_time: pgRawDateTrunc('t.time_stamp')('minute') },
   `amount`,
   `price`
-);
+).distinct(['amount_asset','price_asset','time_stamp']);
 
 /** selectExchangesAfterTimestamp :: Date -> QueryBuilder */
 const selectExchangesAfterTimestamp = fromTimestamp =>
