@@ -69,3 +69,6 @@ steps:
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     addPipelineData: false
+    tags: |
+      $(Build.SourceBranchName)
+      $(GIT_COMMIT)
