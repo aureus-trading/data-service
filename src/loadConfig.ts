@@ -9,6 +9,7 @@ export type PostgresConfig = {
   postgresPassword: string;
   postgresPoolSize: number;
   postgresStatementTimeout: number | false;
+  postgresSsl: boolean | false;
 };
 
 export type LoggerConfig = {
@@ -48,6 +49,7 @@ export const loadDefaultConfig = (): DefaultConfig => {
     postgresDatabase: process.env.PGDATABASE || 'mainnet',
     postgresUser: process.env.PGUSER || 'postgres',
     postgresPassword: process.env.PGPASSWORD || 'postgres',
+    postgresSsl: process.env.PGSSL ? process.env.PGSSL == 'true' : false,
     postgresPoolSize: process.env.PGPOOLSIZE
       ? parseInt(process.env.PGPOOLSIZE)
       : 20,

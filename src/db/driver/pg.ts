@@ -15,6 +15,7 @@ export type PgDriverOptions = {
   postgresPassword: string;
   postgresPoolSize: number;
   postgresStatementTimeout?: number | false;
+  postgresSsl: boolean
 };
 
 export type SqlQuery = string;
@@ -51,6 +52,7 @@ export const createPgDriver = (
     password: options.postgresPassword,
     max: options.postgresPoolSize, // max connection pool size
     statement_timeout: defaultTo(false, options.postgresStatementTimeout),
+    ssl: options.postgresSsl
   });
 
   const toTasked = <T>(promised: () => Promise<T>) =>
